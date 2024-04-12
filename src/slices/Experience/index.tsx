@@ -32,7 +32,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             <span>{item.institution}</span>
           </div>
           <div className="prose prose-lg prose-invert mt-4">
-            <PrismicRichText field={item.description} />
+            <span>{item.description}</span>
           </div>
         </div>
       ))}

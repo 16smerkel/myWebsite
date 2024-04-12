@@ -726,12 +726,12 @@ export interface ExperienceSliceDefaultItem {
   /**
    * Description field in *Experience → Items*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: experience.items[].description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.RichTextField;
+  description: prismic.KeyTextField;
 }
 
 /**

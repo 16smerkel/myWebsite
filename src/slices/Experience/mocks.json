@@ -40,15 +40,9 @@
 					[
 						"description",
 						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Occaecat sunt magna proident fugiat nisi voluptate proident excepteur pariatur eu eiusmod."
-									}
-								}
-							]
+							"__TYPE__": "FieldContent",
+							"value": "black",
+							"type": "Text"
 						}
 					]
 				]
