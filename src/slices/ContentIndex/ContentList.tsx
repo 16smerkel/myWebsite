@@ -1,16 +1,17 @@
 'use client';
 
-import { Content, asImageSrc, isFilled } from "@prismicio/client";
+import { Content, FilledLinkToMediaField, LinkField, asImageSrc, isFilled } from "@prismicio/client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import gsap from "gsap";
+import { PrismicNextLink } from "@prismicio/next";
 
 type ContentListProps = {
     items: Content.FilmPostDocument[] | Content.ProjectDocument[];
     contentType: Content.ContentIndexSlice["primary"]["content_type"];
     fallbackItemImage: Content.ContentIndexSlice["primary"]["fallback_item_image"];
-    viewMoreText: Content.ContentIndexSlice["primary"]["view_more_text"];
+    viewMoreText: Content.ContentIndexSlice["primary"]["viewMoreText"];
 }
 
 export default function ContentList({
@@ -23,6 +24,9 @@ export default function ContentList({
     const revealRef = useRef(null);
     const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
     const [currentItem, setCurrentItem] = useState<null | number>(null);
+    type Url = string;
+
+
 
     const lastMousePos = useRef({x: 0, y: 0});
 
@@ -93,6 +97,18 @@ export default function ContentList({
         });
     });
 
+    const extractUrlFromLink = (linkField: LinkField): Url => {
+        let url: Url = ""; // Default value
+        
+        if (typeof linkField === "string") {
+          url = linkField;
+        } else if ("url" in linkField && typeof (linkField as FilledLinkToMediaField).url === "string") {
+          url = (linkField as FilledLinkToMediaField).url;
+        }
+        
+        return url;
+      };
+      
     useEffect(() => {
         contentImages.forEach((url) => {
             if (!url) return;
@@ -135,9 +151,11 @@ export default function ContentList({
                                     ))}
                                 </div>
                             </div>
-                            <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
-                                {viewMoreText} <MdArrowOutward/>
-                            </span>
+                                <Link href={extractUrlFromLink(item.data.link)} legacyBehavior>
+                                <a className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
+                                    {viewMoreText} <MdArrowOutward/>
+                                </a>
+                                </Link>
                         </Link>
                     </li>
                 )}

@@ -1,7 +1,9 @@
 import Bounded from "@/components/Bounded";
+import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import React from "react";
 
 /**
  * Props for `Experience`.
@@ -32,10 +34,18 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             <span>{item.institution}</span>
           </div>
           <div className="prose prose-lg prose-invert mt-4">
-            <span>{item.description}</span>
+            <span>{item.description?.split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+            </span>
           </div>
         </div>
-      ))}
+        )
+        )
+      }
     </Bounded>
   );
 };

@@ -6,6 +6,8 @@ import { SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import Bounded from "@/components/Bounded";
 import Shapes from "./Shapes";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 /**
  * Props for `Hero`.
@@ -74,7 +76,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       ref={component}
     >
-    <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
+    
+    <Header/>
+    <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center overflow-hidden">
+    
       <Shapes />
       <div className="col-start-1 md:row-start-1 ">
         <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter"
@@ -93,8 +98,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           {slice.primary.tag_line}
         </span>
       </div>
+      
     </div>
-
     </Bounded>
   );
 };

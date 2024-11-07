@@ -44,6 +44,17 @@ interface FilmPostDocumentData {
   hover_image: prismic.ImageField<never>;
 
   /**
+   * Link field in *Film Post*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: film_post.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
    * Slice Zone field in *Film Post*
    *
    * - **Field Type**: Slice Zone
@@ -168,6 +179,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | AfooterSlice
   | ExperienceSlice
   | ContentIndexSlice
   | TechListSlice
@@ -270,6 +282,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   hover_image: prismic.ImageField<never>;
+
+  /**
+   * Link field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 
   /**
    * Slice Zone field in *Project*
@@ -505,6 +528,51 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *Afooter → Primary*
+ */
+export interface AfooterSliceDefaultPrimary {
+  /**
+   * theFooter field in *Afooter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: afooter.primary.thefooter
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  thefooter: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Afooter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AfooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AfooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Afooter*
+ */
+type AfooterSliceVariation = AfooterSliceDefault;
+
+/**
+ * Afooter Shared Slice
+ *
+ * - **API ID**: `afooter`
+ * - **Description**: Afooter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AfooterSlice = prismic.SharedSlice<
+  "afooter",
+  AfooterSliceVariation
+>;
+
+/**
  * Primary content in *Biography → Primary*
  */
 export interface BiographySliceDefaultPrimary {
@@ -624,16 +692,6 @@ export interface ContentIndexSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * View More Text field in *ContentIndex → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_index.primary.view_more_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  view_more_text: prismic.KeyTextField;
-
-  /**
    * Fallback Item Image field in *ContentIndex → Primary*
    *
    * - **Field Type**: Image
@@ -642,6 +700,16 @@ export interface ContentIndexSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   fallback_item_image: prismic.ImageField<never>;
+
+  /**
+   * viewMoreText field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.viewMoreText
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  viewMoreText: prismic.KeyTextField;
 }
 
 /**
@@ -953,6 +1021,10 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavItemItem,
       SettingsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AfooterSlice,
+      AfooterSliceDefaultPrimary,
+      AfooterSliceVariation,
+      AfooterSliceDefault,
       BiographySlice,
       BiographySliceDefaultPrimary,
       BiographySliceVariation,

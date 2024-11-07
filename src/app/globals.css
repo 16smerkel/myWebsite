@@ -615,6 +615,11 @@
   height: 500vh;
 }
 
+.shapes-container {
+  overflow: hidden; /* Disable scrolling */
+  height: 50vh; /* Ensure the container takes up the full viewport height */
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1303,4 +1308,13 @@
   .md\:inline {
       display: inline;
   }
+}
+
+.content-wrapper {
+  min-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }

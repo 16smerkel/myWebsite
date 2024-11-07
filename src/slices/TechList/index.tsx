@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
+import Header from "@/components/Header";
 
 gsap.registerPlugin(ScrollTrigger);
 

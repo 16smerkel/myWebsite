@@ -1,0 +1,26 @@
+{
+  "id": "afooter",
+  "type": "SharedSlice",
+  "name": "Afooter",
+  "description": "Afooter",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "thefooter": {
+          "type": "Text",
+          "config": {
+            "label": "theFooter",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

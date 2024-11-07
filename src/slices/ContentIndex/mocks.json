@@ -24,13 +24,7 @@
 					}
 				]
 			},
-			"view_more_text": {
-				"__TYPE__": "FieldContent",
-				"value": "act",
-				"type": "Text"
-			},
 			"fallback_item_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
@@ -48,7 +42,22 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"viewMoreText": {
+				"__TYPE__": "FieldContent",
+				"value": "eager",
+				"type": "Text"
+			},
+			"viewMoreLink": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
 			}
 		},
 		"items": []

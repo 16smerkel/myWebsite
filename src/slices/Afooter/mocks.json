@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"thefooter": {
+				"__TYPE__": "FieldContent",
+				"value": "history",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
